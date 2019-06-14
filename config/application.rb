@@ -29,5 +29,11 @@ module InvoiceApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.javascript_engine :js
+      g.jbuilder false
+
+    end
   end
 end
