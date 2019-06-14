@@ -4,7 +4,7 @@ RSpec.feature 'User Sign up', type: :feature do
   scenario 'User visits the site first time and signs up' do
     visit root_path
     expect(page).to have_text("Creating invoices it's not a magic! Sign up now, and see how easy it is!")
-    expect(page).to have_link("Sign up")
+    expect(page).to have_text("Sign up")
     click_link 'Sign up'
     fill_in 'user[email]', with: Faker::Internet.email
     fill_in 'user[password]', with: 'password'
