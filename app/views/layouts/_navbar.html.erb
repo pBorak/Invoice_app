@@ -8,14 +8,15 @@
             Account
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Profile", '#', class: "dropdown-item" %>
-            <%= link_to "Settings", '#', class: "dropdown-item" %>
+            <%= link_to "My invoices", '#', class: "dropdown-item" %>
+            <%= link_to "Create new invoice", '#', class: "dropdown-item" %>
+            <%= link_to "Settings",  edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete,
-                              class: "dropdown-item" %>
+                        class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
-      <%= link_to "Log in", new_user_session_path, class: "btn btn-gradient" %>
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-gradient" %>
       <% end %>
     </ul>
   </div>
