@@ -1,0 +1,10 @@
+@mixin orange-to-pink($deg: to right, $col-1: $orange, $col-2: $pink) {
+  background-image: linear-gradient($deg, $col-1, $col-2);
+}
+
+@mixin gradient-text() {
+  background: linear-gradient(to right, $orange, $pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

@@ -1,0 +1,66 @@
+body {
+  background-color: #333;
+  font-family: 'Fira Sans', 'sans-serif';
+  color: white;
+  padding-top: 60px;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #333;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+
+  &.alert {
+    color: red;
+    text-align: center;
+  }
+
+  &.notice {
+    @include gradient-text;
+    text-align: center;
+    margin: 27px 0;
+  }
+}
+.btn-gradient {
+  @include orange-to-pink;
+  color: white;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.form-control {
+  &:focus {
+    border-color: #EC4A76;
+  }
+}
+
+footer, .form-group {
+  a {
+    @include gradient-text;
+  }
+}

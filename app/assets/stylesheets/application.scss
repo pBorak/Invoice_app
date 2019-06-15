@@ -1,2 +1,6 @@
-@import "/*";
-@import "bootstrap";
+@import 'bootstrap';
+@import 'base/mixins';
+@import 'base/globals';
+@import 'styles/navbar';
+@import 'styles/footer';
+@import "styles/home";

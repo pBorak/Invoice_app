@@ -1,0 +1,30 @@
+.navbar {
+  background: #0F0F17;
+  a {
+    color: white;
+  }
+
+  .dropdown-menu {
+    @include orange-to-pink;
+  }
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding: 3px 15px;
+  font-weight: bold;
+  @include orange-to-pink;
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+#navbarNavDropdown {
+  justify-content: flex-end;
+  margin-right: 25px;
+}
