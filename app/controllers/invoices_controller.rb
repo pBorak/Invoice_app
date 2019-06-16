@@ -1,11 +1,12 @@
 class InvoicesController < ApplicationController
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :check_ownership, only: [:show,:edit, :update,  :destroy]
 
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    @invoices = current_user.invoices
   end
 
   # GET /invoices/1
@@ -67,6 +68,11 @@ class InvoicesController < ApplicationController
     def set_invoice
       @invoice = Invoice.find(params[:id])
     end
+
+  def check_ownership
+    invoice = current_user.invoices.find_by(id: params[:id])
+    redirect_to root_url if invoice.nil?
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
