@@ -47,20 +47,24 @@ p {
   color: white;
 }
 
-a {
-  &:hover {
-    text-decoration: none;
-  }
-}
-
 .form-control {
   &:focus {
     border-color: #EC4A76;
   }
 }
 
-footer, .form-group {
+footer, .container {
   a {
     @include gradient-text;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
+}
+
+div.alert-danger{
+  background: #f4f4f4;
+  @include gradient-text;
+  border: solid orange;
 }

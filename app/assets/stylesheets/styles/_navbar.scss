@@ -1,15 +1,17 @@
 .navbar {
   background: #0F0F17;
-  a {
-    color: white;
-  }
 
   .dropdown-menu.show {
-    @include orange-to-pink;
+    background: #343a40;
+
+    .dropdown-item {
+      @include gradient-text;
+    }
   }
 }
 
 #logo {
+  color: white;
   margin-right: 10px;
   margin-left: 75px;
   font-size: 1.7em;
