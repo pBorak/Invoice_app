@@ -5,11 +5,11 @@
       <% if current_user %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle btn btn-gradient" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
+            <%= current_user.email %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "My invoices", '#', class: "dropdown-item" %>
-            <%= link_to "Create new invoice", '#', class: "dropdown-item" %>
+            <%= link_to "My invoices", invoices_path, class: "dropdown-item" %>
+            <%= link_to "Create new invoice", new_invoice_path, class: "dropdown-item" %>
             <%= link_to "Settings",  edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete,
                         class: "dropdown-item" %>

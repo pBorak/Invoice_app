@@ -1,0 +1,37 @@
+.panel {
+  border: 15px solid #343a40;
+
+  a, p {
+    margin-left: 10px;
+    padding: 5px;
+
+  }
+  h3 {
+    text-align: center;
+  }
+  .panel-heading, .panel-footer {
+    background-color: #343a40;
+    padding: 15px 0;
+  }
+}
+
+.panel-default {
+  margin-left: 5rem;
+}
+
+#invoice-wrap {
+
+  margin-left: 30px;
+
+  address {
+    margin: 8px 0;
+    text-align: left;
+  }
+  input {
+    margin: 15px 0;
+  }
+
+  .invoice-address {
+    margin-top: 2rem;
+  }
+}

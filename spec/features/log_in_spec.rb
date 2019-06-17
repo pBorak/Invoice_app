@@ -16,7 +16,7 @@ RSpec.feature 'Log in', type: :feature do
   scenario 'invalid inputs' do
     visit root_path
     click_link 'Log in'
-    fill_in 'Email', with: 'ivnalid@.com'
+    fill_in 'Email', with: 'ivnalid@a.com'
     fill_in 'Password', with: 'bad'
     click_button 'Log in'
 
