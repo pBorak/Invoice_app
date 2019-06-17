@@ -19,20 +19,22 @@
 
       <div class="invoice-address col-md-4">
         <address>
-          <%= f.label :company, "From"%>
+          <%= f.label :company, "From" %>
           <%= f.input_field :company, class: "form-control" %>
-          <input class="form-control" placeholder="address"/>
-          <input class="form-control" placeholder="phone number"/>
+          <input type="text" name="address_1" class="form-control" placeholder="address"/>
+          <input type="text" name="phone_1" class="form-control" placeholder="phone number"/>
         </address>
       </div>
-        <div class="invoice-address col-md-4">
-          <address>
-            <%= f.label :contragent, "To"%>
-            <%= f.input_field :contragent, class: "form-control" %>
-          <input class="form-control" placeholder="address"/>
-          <input class="form-control" placeholder="phone number"/>
+      <div class="invoice-address col-md-4">
+        <address>
+          <%= f.label :contragent, "To" %>
+          <%= f.input_field :contragent, class: "form-control" %>
+          <input type="text" name="address_2" class="form-control" placeholder="address"/>
+          <input type="text" name="phone_2" class="form-control" placeholder="phone number"/>
         </address>
+
       </div>
+
     </div>
 
     <div class="row">
@@ -42,7 +44,7 @@
       <div class="col-6 col-md-4">
         <div class="form-group col-md-8">
           <%= f.label :date, required: false %>
-          <%= f.date_field :date, class: "form-control"%>
+          <%= f.date_field :date, class: "form-control" %>
         </div>
         <div class="form-group  col-md-8 ">
           <%= f.label :currency, required: false %>
