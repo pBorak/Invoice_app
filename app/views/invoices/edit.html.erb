@@ -1,6 +1,15 @@
-<h1>Editing Invoice</h1>
-
-<%= render 'form', invoice: @invoice %>
-
-<%= link_to 'Show', @invoice %> |
-<%= link_to 'Back', invoices_path %>
+<% provide(:button_text, 'Save changes') %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Editing Invoice</h3>
+        <%= link_to 'Back', invoices_path, class: "btn" %>
+        <%= link_to 'Show', @invoice %>
+      </div>
+      <div class="panel-body">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>

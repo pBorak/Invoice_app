@@ -1,47 +1,63 @@
-<%= form_with(model: invoice, local: true) do |form| %>
-  <% if invoice.errors.any? %>
-    <div class="alert alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <div id="error_explanation">
-        <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+<%= simple_form_for(@invoice) do |f| %>
+  <div id="invoice-wrap">
+    <% if @invoice.errors.any? %>
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div id="error_explanation">
+          <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+          <ul>
+            <% @invoice.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+    <div class="row">
 
-        <ul>
-          <% invoice.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+      <div class="invoice-address col-md-4">
+        <address>
+          <%= f.label :company, "From"%>
+          <%= f.input_field :company, class: "form-control" %>
+          <input class="form-control" placeholder="address"/>
+          <input class="form-control" placeholder="phone number"/>
+        </address>
+      </div>
+        <div class="invoice-address col-md-4">
+          <address>
+            <%= f.label :contragent, "To"%>
+            <%= f.input_field :contragent, class: "form-control" %>
+          <input class="form-control" placeholder="address"/>
+          <input class="form-control" placeholder="phone number"/>
+        </address>
       </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :company %>
-    <%= form.text_field :company %>
-  </div>
+    <div class="row">
 
-  <div class="field">
-    <%= form.label :contragent %>
-    <%= form.text_field :contragent %>
-  </div>
+      <div class="col-12  col-md-8"></div>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
-  </div>
+      <div class="col-6 col-md-4">
+        <div class="form-group col-md-8">
+          <%= f.label :date, required: false %>
+          <%= f.date_field :date, class: "form-control"%>
+        </div>
+        <div class="form-group  col-md-8 ">
+          <%= f.label :currency, required: false %>
+          <%= f.input_field :currency, class: "form-control" %>
+        </div>
+        <div class="form-group  col-md-8">
+          <%= f.label :amount, required: false %>
+          <%= f.input_field :amount, class: "form-control" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :currency %>
-    <%= form.text_field :currency %>
-  </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit class:"btn btn-gradient" %>
-  </div>
+    <div class="col-xs-12 ">
+      <%= f.button :submit, yield(:button_text), class: 'btn btn-warning' %>
+    </div>
 <% end %>
+</div>

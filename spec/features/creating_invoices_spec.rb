@@ -13,14 +13,12 @@ RSpec.feature 'Create invoice', type: :feature do
     login_as(user)
     visit new_invoice_path
     fill_in "Amount", with: 10000
-    fill_in "Company", with: "Random"
-    fill_in "Contragent", with: "Example"
+    fill_in "From", with: "Random"
+    fill_in "To", with: "Example"
     fill_in "Currency", with: "$"
-    page.find('#invoice_date_1i').select "2020"
-    page.find('#invoice_date_2i').select "June"
-    page.find('#invoice_date_3i').select "16"
+    fill_in "Date", with: Date.tomorrow
     expect {
-      click_button "Create Invoice"
+      click_button "Submit payment"
     }.to change(Invoice, :count).by(1)
     expect(page).to have_text("Invoice was successfully created.")
   end
@@ -30,13 +28,11 @@ RSpec.feature 'Create invoice', type: :feature do
     login_as(user)
     visit new_invoice_path
     fill_in "Amount", with: -5
-    fill_in "Company", with: "Company"
-    fill_in "Contragent", with: "Contargent"
+    fill_in "From", with: "Company"
+    fill_in "To", with: "Contargent"
     fill_in "Currency", with: "$"
-    page.find('#invoice_date_1i').select "2015"
-    page.find('#invoice_date_2i').select "April"
-    page.find('#invoice_date_3i').select "16"
-    click_button "Create Invoice"
+    fill_in "Date", with: Date.yesterday
+    click_button "Submit payment"
     expect(page).to have_text("Date can't be in the past")
     expect(page).to have_text("Amount must be greater than 0")
   end

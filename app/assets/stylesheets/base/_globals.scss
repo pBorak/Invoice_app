@@ -3,9 +3,12 @@ body {
   font-family: 'Fira Sans', 'sans-serif';
   color: white;
   padding-top: 60px;
+  padding-bottom: 6rem;
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
 }
 
-/* typography */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -42,6 +45,7 @@ p {
     margin: 27px 0;
   }
 }
+
 .btn-gradient {
   @include orange-to-pink;
   color: white;
@@ -53,7 +57,7 @@ p {
   }
 }
 
-footer, .container {
+footer, .container-fluid {
   a {
     @include gradient-text;
 
@@ -63,8 +67,9 @@ footer, .container {
   }
 }
 
-div.alert-danger{
+div.alert-danger {
   background: #f4f4f4;
   @include gradient-text;
   border: solid orange;
 }
+

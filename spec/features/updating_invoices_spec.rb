@@ -8,7 +8,7 @@ RSpec.feature 'Update invoice', type: :feature do
     login_as(user)
     visit edit_invoice_path(invoice)
     fill_in "Amount", with: 100001
-    click_button "Update Invoice"
+    click_button "Save changes"
     expect(page).to have_text("Invoice was successfully updated.")
   end
 
@@ -18,7 +18,7 @@ RSpec.feature 'Update invoice', type: :feature do
     login_as(user)
     visit edit_invoice_path(invoice)
     fill_in "Amount", with: -1
-    click_button "Update Invoice"
+    click_button "Save changes"
     expect(page).to have_text("Amount must be greater than 0")
   end
 
