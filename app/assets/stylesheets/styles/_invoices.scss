@@ -32,10 +32,6 @@
 
   input {
     margin: 15px 0;
-
-    &[type = "submit"] {
-      margin-top: 25px;
-    }
   }
 
   .invoice-address {
@@ -53,7 +49,12 @@
     width: 90%;
 
   }
+
   .form-control[readonly] {
     background-color: #d3d3d3;
   }
+  }
+
+#blueprint {
+  color: black;
 }

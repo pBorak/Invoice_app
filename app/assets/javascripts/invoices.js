@@ -2,7 +2,32 @@ $(document).on('turbolinks:load', function () {
 
     let row_count = 1;
     $('#add_row').click(function () {
+
+        let new_row = `
+        <tr class="item-row">
+             <td>
+                <input id="product_${row_count+1}" type="text" name="product"  placeholder="Enter Product Name" 
+                class="form-control blueprint">
+             </td>
+             <td>
+                <input id="qty_${row_count+1}" type="number" name="qty" placeholder="Enter Qty" 
+                class="form-control blueprint qty" step="0" min="0">
+            </td>   
+            <td>
+                <input id="price_${row_count+1}" type="number" name="price" placeholder="Enter Unit Price" 
+                class="form-control blueprint price" step="0.00" min="0">
+            </td>
+            <td>
+                <input id="total_${row_count+1}" type="number" name="total" placeholder="0.00" 
+                class="form-control blueprint total" readonly="">
+            </td>
+            <td class="align-middle">
+                <a class="btn btn-sm btn-warning delete delete_row">Delete row</a>
+            </td>
+      </tr>`
+
         $('.item-row:last').after(new_row);
+
         row_count++;
     });
 
@@ -21,20 +46,7 @@ $(document).on('turbolinks:load', function () {
     $('#tax').on('keyup change', function () {
         calc_total();
     });
-
-    let new_row = '<tr class=\'item-row\'>\n' +
-        '            <td><input type="text" name=\'product\' placeholder=\'Enter Product Name\' class="form-control "/></td>\n' +
-        '            <td><input type="number" name=\'qty\' placeholder=\'Enter Qty\' class="form-control qty" step="0" min="0"/>\n' +
-        '            </td>\n' +
-        '            <td>\n' +
-        '              <input type="number" name=\'price\' placeholder=\'Enter Unit Price\' class="form-control price" step="0.00" min="0"/>\n' +
-        '            </td>\n' +
-        '            <td><input type="number" name=\'total\' placeholder=\'0.00\' class="form-control total" readonly/></td>\n' +
-        '            <td class="align-middle"><a class="delete_row btn btn-sm btn-warning delete">Delete row</a></td>\n' +
-        '          </tr>';
-
-
-});
+    });
 
 function calc() {
     $('#tab_logic tbody tr').each(function () {
