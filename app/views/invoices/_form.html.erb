@@ -20,17 +20,17 @@
       <div class="invoice-address col-md-4">
         <address>
           <%= f.label :company, "From" %>
-          <%= f.input_field :company, class: "form-control" %>
-          <input type="text" name="address_1" class="form-control" placeholder="address"/>
-          <input type="text" name="phone_1" class="form-control" placeholder="phone number"/>
+          <%= f.input_field :company, class: "form-control blueprint" %>
+          <input type="text" id="address_1" name="address_1" class="form-control blueprint" placeholder="address"/>
+          <input type="text" id="phone_1" name="phone_1" class="form-control blueprint " placeholder="phone number"/>
         </address>
       </div>
       <div class="invoice-address col-md-4">
         <address>
           <%= f.label :contragent, "To" %>
-          <%= f.input_field :contragent, class: "form-control" %>
-          <input type="text" name="address_2" class="form-control" placeholder="address"/>
-          <input type="text" name="phone_2" class="form-control" placeholder="phone number"/>
+          <%= f.input_field :contragent, class: "form-control blueprint" %>
+          <input type="text" id="address_2" name="address_2" class="form-control blueprint" placeholder="address"/>
+          <input type="text" id="phone_2" name="phone_2" class="form-control blueprint" placeholder="phone number"/>
         </address>
 
       </div>
@@ -44,22 +44,104 @@
       <div class="col-6 col-md-4">
         <div class="form-group col-md-8">
           <%= f.label :date, required: false %>
-          <%= f.date_field :date, class: "form-control" %>
+          <%= f.date_field :date, class: "form-control blueprint" %>
         </div>
         <div class="form-group  col-md-8 ">
           <%= f.label :currency, required: false %>
-          <%= f.input_field :currency, class: "form-control" %>
-        </div>
-        <div class="form-group  col-md-8">
-          <%= f.label :amount, required: false %>
-          <%= f.input_field :amount, class: "form-control" %>
+          <%= f.input_field :currency, class: "form-control blueprint" %>
         </div>
       </div>
 
     </div>
 
-    <div class="col-xs-12 ">
-      <%= f.button :submit, yield(:button_text), class: 'btn btn-warning' %>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered table-hover" id="tab_logic">
+          <thead>
+          <tr>
+            <th class="text-center"> Product</th>
+            <th class="text-center"> Qty</th>
+            <th class="text-center"> Price</th>
+            <th class="text-center"> Total</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class='item-row'>
+            <td>
+              <input id="product_1" type="text" name='product' placeholder='Enter Product Name' class="form-control blueprint "/>
+            </td>
+            <td>
+              <input id="qty_1" type="number" name='qty' placeholder='Enter Qty' class="form-control blueprint qty" step="0" min="0"/>
+            </td>
+            <td>
+              <input id="price_1" type="number" name='price' placeholder='Enter Unit Price' class="form-control blueprint price" step="0.00" min="0"/>
+            </td>
+            <td>
+              <input id="total_1" type="number" name='total' placeholder='0.00' class="form-control blueprint total" readonly/>
+            </td>
+            <td class="align-middle"><a class="btn btn-sm btn-warning delete delete_row">Delete row</a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4">
+        <a id="add_row" class="btn btn-success">Add a row</a>
+      </div>
+    </div>
+
+    <div class="col-4 offset-7">
+      <table class="table border-top border-bottom table-hover" id="tab_logic_total">
+        <tbody>
+        <tr>
+          <th class=" align-middle">Sub Total</th>
+          <td class="">
+            <input type="number" name='sub_total' placeholder='0.00' class="form-control blueprint" id="sub_total" readonly/>
+          </td>
+        </tr>
+        <tr>
+          <th class=" align-middle ">Tax [ % ]</th>
+          <td>
+            <input type="number" class="form-control blueprint" id="tax" value="23">
+          </td>
+        </tr>
+        <tr>
+          <th class=" align-middle">Tax Amount</th>
+          <td>
+            <input type="number" name='tax_amount' id="tax_amount" placeholder='0.00' class="form-control blueprint" readonly/>
+          </td>
+        </tr>
+        <tr>
+          <th class="align-middle">Grand Total</th>
+          <td>
+            <%= f.input_field :amount, class: "form-control blueprint", readonly: true %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <a class="btn btn-info  " id="invoice_blueprint" data-toggle="modal" data-target="#invoice_modal">Show
+          Invoice</a>
+        <%= f.button :submit, 'Submit Payment', class: 'btn btn-warning' %>
+
+      </div>
+      <div class="col-4">
+      </div>
     </div>
 <% end %>
+</div>
+
+<div class="modal fade" id="invoice_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="width:920px">
+      <div class="container-fluid invoice_wrapper" style="margin:10px" id="print-me">
+        <%= render 'invoice_blueprint' %>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="printDiv('print-me')">Print</button>
+      </div>
+    </div>
+  </div>
 </div>
