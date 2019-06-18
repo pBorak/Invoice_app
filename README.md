@@ -1,24 +1,36 @@
-# README
+# Invoice-on-rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<table>
+<tr>
+<td>
+Invoice-on rails is a simple application that enable registered users to create and print invoices.
+</tr>
+</td>
+</table>
 
-Things you may want to cover:
+# Deployment
 
-* Ruby version
+Project is deployed on Heroku:
+[Invoice-on-rails](https://invoice-on-rails.herokuapp.com/)
 
-* System dependencies
+# Project setup
 
-* Configuration
+```
+$ bundle install
+$ rails db:setup
+$ rails server
+```
 
-* Database creation
+# Testing
 
-* Database initialization
+To run the test suite, run:
 
-* How to run the test suite
+```
+$ rspec
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+# Built with
 
-* Deployment instructions
-
-* ...
+- ruby -v: 2.5.3
+- rails -v: 5.2.3
+- postgreSQL 
