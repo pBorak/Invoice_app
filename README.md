@@ -3,7 +3,7 @@
 <table>
 <tr>
 <td>
-Invoice-on rails is a simple application that enable registered users to create and print invoices.
+Invoice-on rails is a simple application that enables registered users to create and print invoices.
 </tr>
 </td>
 </table>
