@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :invoices
+  resources :invoices, except: [:edit, :update]
   devise_for :users
 
   authenticated :user do

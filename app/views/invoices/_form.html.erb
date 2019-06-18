@@ -50,16 +50,75 @@
           <%= f.label :currency, required: false %>
           <%= f.input_field :currency, class: "form-control" %>
         </div>
-        <div class="form-group  col-md-8">
-          <%= f.label :amount, required: false %>
-          <%= f.input_field :amount, class: "form-control" %>
-        </div>
       </div>
 
     </div>
 
-    <div class="col-xs-12 ">
-      <%= f.button :submit, yield(:button_text), class: 'btn btn-warning' %>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered table-hover" id="tab_logic">
+          <thead>
+          <tr>
+            <th class="text-center"> Product</th>
+            <th class="text-center"> Qty</th>
+            <th class="text-center"> Price</th>
+            <th class="text-center"> Total</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class='item-row'>
+            <td><input type="text" name='product' placeholder='Enter Product Name' class="form-control "/></td>
+            <td><input type="number" name='qty' placeholder='Enter Qty' class="form-control qty" step="0" min="0"/>
+            </td>
+            <td>
+              <input type="number" name='price' placeholder='Enter Unit Price' class="form-control price" step="0.00" min="0"/>
+            </td>
+            <td><input type="number" name='total' placeholder='0.00' class="form-control total" readonly/></td>
+            <td class="align-middle"><a class="btn btn-sm btn-warning delete delete_row">Delete row</a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4">
+        <a id="add_row" class="btn btn-success">Add a row</a>
+      </div>
     </div>
+
+    <div class="col-4 offset-7">
+      <table class="table table-bordered table-hover" id="tab_logic_total">
+        <tbody>
+        <tr>
+          <th class=" align-middle">Sub Total</th>
+          <td class="">
+            <input type="number" name='sub_total' placeholder='0.00' class="form-control" id="sub_total" readonly/>
+          </td>
+        </tr>
+        <tr>
+          <th class=" align-middle ">Tax [ % ]</th>
+          <td>
+            <input type="number" class="form-control" id="tax" placeholder="0">
+          </td>
+        </tr>
+        <tr>
+          <th class=" align-middle">Tax Amount</th>
+          <td>
+            <input type="number" name='tax_amount' id="tax_amount" placeholder='0.00' class="form-control" readonly/>
+          </td>
+        </tr>
+        <tr>
+          <th class="align-middle">Grand Total</th>
+          <td>
+            <%= f.input_field :amount, class: "form-control", readonly: true  %>
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <%= f.button :submit, 'Submit Payment', class: 'btn btn-warning'%>
+    </div>
+
 <% end %>
 </div>
